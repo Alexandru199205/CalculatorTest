@@ -57,7 +57,9 @@ namespace Calculator
 
         private void ButtonFour_Click(object sender, EventArgs e)
         {
+
             Numcheck("4");
+    
         }
 
         private void ButtonFive_Click(object sender, EventArgs e)
@@ -213,16 +215,7 @@ namespace Calculator
             {
 
                 case "+":
-                    
-                    try
-                    {
-                        secondValue = decimal.Parse(textBox.Text);
-                    }
-                    catch (Exception)
-                    {
-
-                        MessageBox.Show("Invalid input") ;
-                    }
+                    decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue + secondValue;
                     textBox.Text = result.ToString();
                     // The following line alows to continue opperating (if wanted) after pressing '='                
@@ -230,60 +223,28 @@ namespace Calculator
                     break;
                 case "-":
 
-                    try
-                    {
-                        secondValue = decimal.Parse(textBox.Text);
-
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Invalid Input");
-                    }
+                    decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue - secondValue;
                     textBox.Text = result.ToString();
                     // The following line alows to continue opperating (if wanted) after pressing '='   
                     firstValue = 0;
                     break;
                 case "*":
-                    try
-                    {
-                        secondValue = decimal.Parse(textBox.Text);
-
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Invalid Input");
-                    }
+                    decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue * secondValue;
                     textBox.Text = result.ToString();
                     // The following line alows to continue opperating (if wanted) after pressing '='   
                     firstValue = 0;
                     break;
                 case "/":
-                    try
-                    {
-                        secondValue = decimal.Parse(textBox.Text);
-
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Invalid Input");
-                    }
+                    decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue / secondValue;
                     textBox.Text = result.ToString();
                     // The following line alows to continue opperating (if wanted) after pressing '='   
                     firstValue = 0;
                     break;
                 case "%":
-                    try
-                    {
-                        secondValue = decimal.Parse(textBox.Text);
-
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Invalid Input");
-                    }
+                    decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue % secondValue;
                     textBox.Text = result.ToString();
                     // The following line alows to continue opperating (if wanted) after pressing '='   
