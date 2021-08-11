@@ -68,7 +68,7 @@ namespace Calculator
 
         private void ButtonFour_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
+            if  (textBox.Text == "0")
             { textBox.Text = "4"; }
             else
             {
