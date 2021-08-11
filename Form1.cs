@@ -217,40 +217,30 @@ namespace Calculator
                 case "+":
                     decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue + secondValue;
-                    textBox.Text = result.ToString();
-                    // The following line alows to continue opperating (if wanted) after pressing '='                
-                    firstValue = 0;
+                   
                     break;
                 case "-":
 
                     decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue - secondValue;
-                    textBox.Text = result.ToString();
-                    // The following line alows to continue opperating (if wanted) after pressing '='   
-                    firstValue = 0;
+                
                     break;
                 case "*":
                     decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue * secondValue;
-                    textBox.Text = result.ToString();
-                    // The following line alows to continue opperating (if wanted) after pressing '='   
-                    firstValue = 0;
                     break;
                 case "/":
                     decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue / secondValue;
-                    textBox.Text = result.ToString();
-                    // The following line alows to continue opperating (if wanted) after pressing '='   
-                    firstValue = 0;
                     break;
                 case "%":
                     decimal.TryParse(textBox.Text, out secondValue);
                     result = firstValue % secondValue;
-                    textBox.Text = result.ToString();
-                    // The following line alows to continue opperating (if wanted) after pressing '='   
-                    firstValue = 0;
                     break;
             }
+            textBox.Text = result.ToString();
+            // The following line alows to continue opperating (if wanted) after pressing '='   
+            firstValue = 0;
         }
 
        
