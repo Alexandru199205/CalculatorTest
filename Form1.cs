@@ -17,116 +17,75 @@ namespace Calculator
         private decimal result = 0m;
         private  string operators ="";
 
+       
         public CalculatorForm()
         {
             InitializeComponent();
+        }
+        public void Numcheck(string num)
+        {
+            if (textBox.Text == "0")
+            {
+                textBox.Text = num;
+            }
+            else 
+            {
+                textBox.Text += num;
+            }
         }
 
        // Adding the buttons in the textbox
         private void ButtonZero_Click(object sender, EventArgs e)
         {
-            if (textBox.Text =="0")
-            {
-                textBox.Text = "0";
-            }
-            else
-            {
-                textBox.Text += "0";
-            }
+            Numcheck("0");
         }
 
         private void ButtonOne_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "1"; }
-            else 
-            {
-                textBox.Text += "1";
-            }
+            Numcheck("1");
         }
 
         private void ButtonTwo_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "2"; }
-            else
-            {
-                textBox.Text += "2";
-            }
+            Numcheck("2");
         }
 
         private void ButtonThree_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "3"; }
-            else
-            {
-                textBox.Text += "3";
-            }
-
+            Numcheck("3");
         }
 
         private void ButtonFour_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "4"; }
-            else
-            {
-                textBox.Text += "4";
-            }
+            Numcheck("4");
         }
 
         private void ButtonFive_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "5"; }
-            else
-            {
-                textBox.Text += "5";
-            }
+            Numcheck("5");
         }
 
         private void ButtonSix_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "6"; }
-            else
-            {
-                textBox.Text += "6";
-            }
+            Numcheck("6");
         }
 
         private void ButtonSeven_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "7"; }
-            else
-            {
-                textBox.Text += "7";
-            }
+            Numcheck("7");
         }
 
         private void ButtonEight_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "8"; }
-            else
-            {
-                textBox.Text += "8";
-            }
+            Numcheck("8");
         }
 
         private void ButtonNine_Click(object sender, EventArgs e)
         {
-            if (textBox.Text == "0")
-            { textBox.Text = "9"; }
-            else
-            {
-                textBox.Text += "9";
-            }
+            Numcheck("9");
         }
 
-       
+
         private void ButtonPlusMinus_Click(object sender, EventArgs e)
         {
             if (textBox.Text.Contains('-'))
