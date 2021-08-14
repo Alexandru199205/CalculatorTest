@@ -22,7 +22,8 @@ namespace Calculator
         {
             InitializeComponent();
         }
-        public void Numcheck(string num)
+       // Method that helps introducing the numbers in the textbox (reduce duplicate code)
+        public void NumCheck(string num)
         {
             if (textBox.Text == "0")
             {
@@ -34,57 +35,57 @@ namespace Calculator
             }
         }
 
+
        // Adding the buttons in the textbox
         private void ButtonZero_Click(object sender, EventArgs e)
         {
-            Numcheck("0");
+            NumCheck("0");
         }
 
         private void ButtonOne_Click(object sender, EventArgs e)
         {
-            Numcheck("1");
+            NumCheck("1");
         }
 
         private void ButtonTwo_Click(object sender, EventArgs e)
         {
-            Numcheck("2");
+            NumCheck("2");
         }
 
         private void ButtonThree_Click(object sender, EventArgs e)
         {
-            Numcheck("3");
+            NumCheck("3");
         }
 
         private void ButtonFour_Click(object sender, EventArgs e)
         {
 
-            Numcheck("4");
-    
+            NumCheck("4");
         }
 
         private void ButtonFive_Click(object sender, EventArgs e)
         {
-            Numcheck("5");
+            NumCheck("5");
         }
 
         private void ButtonSix_Click(object sender, EventArgs e)
         {
-            Numcheck("6");
+            NumCheck("6");
         }
 
         private void ButtonSeven_Click(object sender, EventArgs e)
         {
-            Numcheck("7");
+            NumCheck("7");
         }
 
         private void ButtonEight_Click(object sender, EventArgs e)
         {
-            Numcheck("8");
+            NumCheck("8");
         }
 
         private void ButtonNine_Click(object sender, EventArgs e)
         {
-            Numcheck("9");
+            NumCheck("9");
         }
 
 
@@ -137,7 +138,7 @@ namespace Calculator
         {
 
             // Allowing to do multiple '+' opperations before hitting '='
-            if (firstValue != 0)
+           if (firstValue != 0)
             {
                firstValue += decimal.Parse(textBox.Text);
                 textBox.Text = firstValue.ToString();
@@ -145,10 +146,10 @@ namespace Calculator
             } 
             else
             {
-                firstValue = decimal.Parse(textBox.Text);
+               firstValue = decimal.Parse(textBox.Text);
 
-               textBox.Clear();
-                operators = "+";
+              textBox.Clear();
+               operators = "+";
             }
         }
 
