@@ -106,6 +106,7 @@
             this.textBox.ForeColor = System.Drawing.Color.Black;
             this.textBox.Location = new System.Drawing.Point(12, 61);
             this.textBox.Name = "textBox";
+            this.textBox.ReadOnly = true;
             this.textBox.Size = new System.Drawing.Size(293, 40);
             this.textBox.TabIndex = 16;
             this.textBox.Text = "0";
