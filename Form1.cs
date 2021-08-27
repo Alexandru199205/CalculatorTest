@@ -232,6 +232,11 @@ namespace Calculator
                     break;
                 case "/":
                     decimal.TryParse(textBox.Text, out secondValue);
+                    if (secondValue == 0)
+                    {
+                        MessageBox.Show("you cannot devide to zero, please delete and insert another value");
+                        return;
+                    }
                     result = firstValue / secondValue;
                     break;
                 case "%":
