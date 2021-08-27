@@ -330,6 +330,7 @@
             this.Controls.Add(this.ButtonEight);
             this.Controls.Add(this.ButtonSix);
             this.Controls.Add(this.ButtonNine);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CalculatorForm";
             this.Text = "Calculator";
