@@ -12,10 +12,10 @@ namespace Calculator
 {
     public partial class CalculatorForm : Form
     {
-        private decimal firstValue = 0m;
-        private decimal secondValue = 0m;
-        private decimal result = 0m;
-        private  string operators ="";
+        private decimal _firstValue = 0m;
+        private decimal _secondValue = 0m;
+        private decimal _result = 0m;
+        private  string _operators ="";
 
        
         public CalculatorForm()
@@ -117,8 +117,8 @@ namespace Calculator
             textBox.Clear();
             // The lines below prevent operating with remained, uncleared data in case the '
            // clear' button is pressed during an unfinished opperetion.
-            firstValue = 0;
-            secondValue = 0;
+            _firstValue = 0;
+            _secondValue = 0;
         }
         // Deleting unwanted figures from Textbox.
         private void Backspacebutton_Click(object sender, EventArgs e)
@@ -138,18 +138,18 @@ namespace Calculator
         {
 
             // Allowing to do multiple '+' opperations before hitting '='
-           if (firstValue != 0)
+           if (_firstValue != 0)
             {
-               firstValue += decimal.Parse(textBox.Text);
-                textBox.Text = firstValue.ToString();
+               _firstValue += decimal.Parse(textBox.Text);
+                textBox.Text = _firstValue.ToString();
              textBox.Clear();
             } 
             else
             {
-               firstValue = decimal.Parse(textBox.Text);
+               _firstValue = decimal.Parse(textBox.Text);
 
               textBox.Clear();
-               operators = "+";
+               _operators = "+";
             }
         }
 
@@ -157,96 +157,96 @@ namespace Calculator
        
         {
             // Allowing to do multiple '-' opperations before hitting '='
-            if (firstValue != 0)
+            if (_firstValue != 0)
             {
-                firstValue -= decimal.Parse(textBox.Text);
+                _firstValue -= decimal.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
 
             {
-                firstValue = decimal.Parse(textBox.Text);
+                _firstValue = decimal.Parse(textBox.Text);
                 textBox.Clear();
-                operators = "-";
+                _operators = "-";
             }
             }
 
         private void ButtonMultiply_Click(object sender, EventArgs e)
         {
             // Allowing to do multiple '*' opperations before hitting '='
-            if (firstValue != 0)
+            if (_firstValue != 0)
             {
-                firstValue *= decimal.Parse(textBox.Text);
+                _firstValue *= decimal.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
             {
-                firstValue = decimal.Parse(textBox.Text);
+                _firstValue = decimal.Parse(textBox.Text);
                 textBox.Clear();
-                operators = "*";
+                _operators = "*";
             }
         }
 
         private void ButtonDivide_Click(object sender, EventArgs e)
         {
             // Allowing to do multiple '/' opperations before hitting '='
-            if (firstValue != 0)
+            if (_firstValue != 0)
             {
-                firstValue /= decimal.Parse(textBox.Text);
+                _firstValue /= decimal.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
             {
-                firstValue = decimal.Parse(textBox.Text);
+                _firstValue = decimal.Parse(textBox.Text);
                 textBox.Clear();
-                operators = "/";
+                _operators = "/";
             }
         }
          
         private void Percentbutton_Click(object sender, EventArgs e)
         {
-            firstValue = decimal.Parse(textBox.Text);
+            _firstValue = decimal.Parse(textBox.Text);
             textBox.Clear();
-            operators = "%";
+            _operators = "%";
         }
       // Bellow is the code responsible with returning the results ('=' button).
         private void ButtonEqual_Click(object sender, EventArgs e)
         {
-            switch (operators)
+            switch (_operators)
             {
 
                 case "+":
-                    decimal.TryParse(textBox.Text, out secondValue);
-                    result = firstValue + secondValue;
+                    decimal.TryParse(textBox.Text, out _secondValue);
+                    _result = _firstValue + _secondValue;
                    
                     break;
                 case "-":
 
-                    decimal.TryParse(textBox.Text, out secondValue);
-                    result = firstValue - secondValue;
+                    decimal.TryParse(textBox.Text, out _secondValue);
+                    _result = _firstValue - _secondValue;
                 
                     break;
                 case "*":
-                    decimal.TryParse(textBox.Text, out secondValue);
-                    result = firstValue * secondValue;
+                    decimal.TryParse(textBox.Text, out _secondValue);
+                    _result = _firstValue * _secondValue;
                     break;
                 case "/":
-                    decimal.TryParse(textBox.Text, out secondValue);
-                    if (secondValue == 0)
+                    decimal.TryParse(textBox.Text, out _secondValue);
+                    if (_secondValue == 0)
                     {
                         MessageBox.Show("you cannot devide to zero, please delete and insert another value");
                         return;
                     }
-                    result = firstValue / secondValue;
+                    _result = _firstValue / _secondValue;
                     break;
                 case "%":
-                    decimal.TryParse(textBox.Text, out secondValue);
-                    result = firstValue % secondValue;
+                    decimal.TryParse(textBox.Text, out _secondValue);
+                    _result = _firstValue % _secondValue;
                     break;
             }
-            textBox.Text = result.ToString();
+            textBox.Text = _result.ToString();
             // The following line alows to continue opperating (if wanted) after pressing '='   
-            firstValue = 0;
+            _firstValue = 0;
         }
 
        
