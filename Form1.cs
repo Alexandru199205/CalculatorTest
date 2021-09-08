@@ -12,9 +12,9 @@ namespace Calculator
 {
     public partial class CalculatorForm : Form
     {
-        private decimal _firstValue = 0m;
-        private decimal _secondValue = 0m;
-        private decimal _result = 0m;
+        private long _firstValue = 0;
+        private long _secondValue = 0;
+        private long _result = 0;
         private  string _operators ="";
 
        
@@ -140,13 +140,13 @@ namespace Calculator
             // Allowing to do multiple '+' opperations before hitting '='
            if (_firstValue != 0)
             {
-               _firstValue += decimal.Parse(textBox.Text);
+               _firstValue += long.Parse(textBox.Text);
                 textBox.Text = _firstValue.ToString();
              textBox.Clear();
             } 
             else
             {
-               _firstValue = decimal.Parse(textBox.Text);
+               _firstValue = long.Parse(textBox.Text);
 
               textBox.Clear();
                _operators = "+";
@@ -159,13 +159,13 @@ namespace Calculator
             // Allowing to do multiple '-' opperations before hitting '='
             if (_firstValue != 0)
             {
-                _firstValue -= decimal.Parse(textBox.Text);
+                _firstValue -= long.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
 
             {
-                _firstValue = decimal.Parse(textBox.Text);
+                _firstValue = long.Parse(textBox.Text);
                 textBox.Clear();
                 _operators = "-";
             }
@@ -176,12 +176,12 @@ namespace Calculator
             // Allowing to do multiple '*' opperations before hitting '='
             if (_firstValue != 0)
             {
-                _firstValue *= decimal.Parse(textBox.Text);
+                _firstValue *= long.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
             {
-                _firstValue = decimal.Parse(textBox.Text);
+                _firstValue = long.Parse(textBox.Text);
                 textBox.Clear();
                 _operators = "*";
             }
@@ -192,12 +192,12 @@ namespace Calculator
             // Allowing to do multiple '/' opperations before hitting '='
             if (_firstValue != 0)
             {
-                _firstValue /= decimal.Parse(textBox.Text);
+                _firstValue /= long.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
             {
-                _firstValue = decimal.Parse(textBox.Text);
+                _firstValue = long.Parse(textBox.Text);
                 textBox.Clear();
                 _operators = "/";
             }
@@ -205,7 +205,7 @@ namespace Calculator
          
         private void Percentbutton_Click(object sender, EventArgs e)
         {
-            _firstValue = decimal.Parse(textBox.Text);
+            _firstValue = long.Parse(textBox.Text);
             textBox.Clear();
             _operators = "%";
         }
@@ -216,22 +216,22 @@ namespace Calculator
             {
 
                 case "+":
-                    decimal.TryParse(textBox.Text, out _secondValue);
+                    long.TryParse(textBox.Text, out _secondValue);
                     _result = _firstValue + _secondValue;
                    
                     break;
                 case "-":
 
-                    decimal.TryParse(textBox.Text, out _secondValue);
+                    long.TryParse(textBox.Text, out _secondValue);
                     _result = _firstValue - _secondValue;
                 
                     break;
                 case "*":
-                    decimal.TryParse(textBox.Text, out _secondValue);
+                    long.TryParse(textBox.Text, out _secondValue);
                     _result = _firstValue * _secondValue;
                     break;
                 case "/":
-                    decimal.TryParse(textBox.Text, out _secondValue);
+                    long.TryParse(textBox.Text, out _secondValue);
                     if (_secondValue == 0)
                     {
                         MessageBox.Show("you cannot devide to zero, please delete and insert another value");
@@ -240,7 +240,7 @@ namespace Calculator
                     _result = _firstValue / _secondValue;
                     break;
                 case "%":
-                    decimal.TryParse(textBox.Text, out _secondValue);
+                    long.TryParse(textBox.Text, out _secondValue);
                     _result = _firstValue % _secondValue;
                     break;
             }
