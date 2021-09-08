@@ -249,7 +249,10 @@ namespace Calculator
             _firstValue = 0;
         }
 
-       
+        private void CalculatorForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
