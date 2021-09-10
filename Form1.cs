@@ -12,12 +12,11 @@ namespace Calculator
 {
     public partial class CalculatorForm : Form
     {
-        private long _firstValue = 0;
-        private long _secondValue = 0;
-        private long _result = 0;
+        private float _firstValue = 0;
+        private float _secondValue = 0;
+        private float _result = 0;
         private  string _operators ="";
-
-       
+    
         public CalculatorForm()
         {
             InitializeComponent();
@@ -33,6 +32,7 @@ namespace Calculator
             {
                 textBox.Text += num;
             }
+        
         }
 
 
@@ -216,22 +216,22 @@ namespace Calculator
             {
 
                 case "+":
-                    long.TryParse(textBox.Text, out _secondValue);
+                    float.TryParse(textBox.Text, out _secondValue);
                     _result = _firstValue + _secondValue;
                    
                     break;
                 case "-":
 
-                    long.TryParse(textBox.Text, out _secondValue);
+                    float.TryParse(textBox.Text, out _secondValue);
                     _result = _firstValue - _secondValue;
                 
                     break;
                 case "*":
-                    long.TryParse(textBox.Text, out _secondValue);
+                    float.TryParse(textBox.Text, out _secondValue);
                     _result = _firstValue * _secondValue;
                     break;
                 case "/":
-                    long.TryParse(textBox.Text, out _secondValue);
+                    float.TryParse(textBox.Text, out _secondValue);
                     if (_secondValue == 0)
                     {
                         MessageBox.Show("you cannot devide to zero, please delete and insert another value");
@@ -240,7 +240,7 @@ namespace Calculator
                     _result = _firstValue / _secondValue;
                     break;
                 case "%":
-                    long.TryParse(textBox.Text, out _secondValue);
+                    float.TryParse(textBox.Text, out _secondValue);
                     _result = _firstValue % _secondValue;
                     break;
             }
@@ -252,6 +252,11 @@ namespace Calculator
         private void CalculatorForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 

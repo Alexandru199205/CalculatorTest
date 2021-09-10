@@ -111,6 +111,7 @@
             this.textBox.TabIndex = 16;
             this.textBox.Text = "0";
             this.textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // ButtonOne
             // 
