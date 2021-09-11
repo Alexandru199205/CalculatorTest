@@ -106,12 +106,10 @@
             this.textBox.ForeColor = System.Drawing.Color.Black;
             this.textBox.Location = new System.Drawing.Point(12, 61);
             this.textBox.Name = "textBox";
-            this.textBox.ReadOnly = true;
             this.textBox.Size = new System.Drawing.Size(293, 40);
             this.textBox.TabIndex = 16;
-            this.textBox.Text = "0";
             this.textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // ButtonOne
             // 
@@ -336,7 +334,6 @@
             this.MaximizeBox = false;
             this.Name = "CalculatorForm";
             this.Text = "Calculator";
-            this.Load += new System.EventHandler(this.CalculatorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

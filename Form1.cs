@@ -21,7 +21,55 @@ namespace Calculator
         {
             InitializeComponent();
         }
-       // Method that helps introducing the numbers in the textbox (reduce duplicate code)
+// Allowing to introduce figures with the keyboard
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&  !char.IsDigit(e.KeyChar))
+            { e.Handled = true; }
+
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+                }
+                if (e.KeyChar == '+')
+            {
+                ButtonPlus_Click(sender as TextBox, e);
+            }
+            if (e.KeyChar == '-')
+            {
+                ButtonMinus_Click(sender as TextBox, e);
+            }
+            if (e.KeyChar == '*')
+            {
+                ButtonMultiply_Click(sender as TextBox, e);
+            }
+            if (e.KeyChar == '/')
+            {
+                ButtonDivide_Click(sender as TextBox, e);
+            }
+            if (e.KeyChar.ToString() =="08")
+            {
+                Backspacebutton_Click(sender as TextBox, e);
+            }
+            if (e.KeyChar.ToString() ==",")
+            {
+                ButtonComma_Click(sender as TextBox, e);
+                // Keeping the cursor at the begining of the textbox.(After some code it goes at the end of the textbox)               
+                textBox.Select(textBox.Text.Length, 0);
+            }
+
+            if (e.KeyChar == '%')
+            {
+                Percentbutton_Click(sender as TextBox, e);
+            }
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                ButtonEqual_Click(sender as TextBox, e);
+                textBox.Select(textBox.Text.Length, 0);
+            }
+        }
+
+        // Method that helps introducing the numbers in the textbox (reduce duplicate code)
         public void NumCheck(string num)
         {
             if (textBox.Text == "0")
@@ -140,13 +188,13 @@ namespace Calculator
             // Allowing to do multiple '+' opperations before hitting '='
            if (_firstValue != 0)
             {
-               _firstValue += long.Parse(textBox.Text);
+               _firstValue += float.Parse(textBox.Text);
                 textBox.Text = _firstValue.ToString();
              textBox.Clear();
             } 
             else
             {
-               _firstValue = long.Parse(textBox.Text);
+               _firstValue = float.Parse(textBox.Text);
 
               textBox.Clear();
                _operators = "+";
@@ -159,13 +207,13 @@ namespace Calculator
             // Allowing to do multiple '-' opperations before hitting '='
             if (_firstValue != 0)
             {
-                _firstValue -= long.Parse(textBox.Text);
+                _firstValue -= float.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
 
             {
-                _firstValue = long.Parse(textBox.Text);
+                _firstValue = float.Parse(textBox.Text);
                 textBox.Clear();
                 _operators = "-";
             }
@@ -176,12 +224,12 @@ namespace Calculator
             // Allowing to do multiple '*' opperations before hitting '='
             if (_firstValue != 0)
             {
-                _firstValue *= long.Parse(textBox.Text);
+                _firstValue *= float.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
             {
-                _firstValue = long.Parse(textBox.Text);
+                _firstValue = float.Parse(textBox.Text);
                 textBox.Clear();
                 _operators = "*";
             }
@@ -192,12 +240,12 @@ namespace Calculator
             // Allowing to do multiple '/' opperations before hitting '='
             if (_firstValue != 0)
             {
-                _firstValue /= long.Parse(textBox.Text);
+                _firstValue /= float.Parse(textBox.Text);
                 textBox.Clear();
             }
             else
             {
-                _firstValue = long.Parse(textBox.Text);
+                _firstValue = float.Parse(textBox.Text);
                 textBox.Clear();
                 _operators = "/";
             }
@@ -249,15 +297,8 @@ namespace Calculator
             _firstValue = 0;
         }
 
-        private void CalculatorForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+     
+   
     }
 
 }
