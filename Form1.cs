@@ -27,11 +27,16 @@ namespace Calculator
             if (!char.IsControl(e.KeyChar) &&  !char.IsDigit(e.KeyChar))
             { e.Handled = true; }
 
-            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > 0))
             {
                 e.Handled = true;
                 }
-                if (e.KeyChar == '+')
+            //if ((sender as TextBox).Text == "" && (e.KeyChar == '+' || e.KeyChar == '-' || e.KeyChar == '*' || e.KeyChar == '/'))
+            //   {
+            //    e.Handled = true;
+            //}
+            
+            if (e.KeyChar == '+')
             {
                 ButtonPlus_Click(sender as TextBox, e);
             }
@@ -70,9 +75,14 @@ namespace Calculator
         }
 
         // Method that helps introducing the numbers in the textbox (reduce duplicate code)
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         public void NumCheck(string num)
         {
-            if (textBox.Text == "0")
+            if (textBox.Text == "" )
             {
                 textBox.Text = num;
             }
@@ -184,9 +194,14 @@ namespace Calculator
       // The action of operators
         private void ButtonPlus_Click(object sender, EventArgs e)
         {
-
+            //Preventing the crash if user enter operators on an empty box.
+            if (textBox.Text == "")
+            {
+                return;
+            }
             // Allowing to do multiple '+' opperations before hitting '='
-           if (_firstValue != 0)
+
+            if (_firstValue != 0)
             {
                _firstValue += float.Parse(textBox.Text);
                 textBox.Text = _firstValue.ToString();
@@ -194,7 +209,8 @@ namespace Calculator
             } 
             else
             {
-               _firstValue = float.Parse(textBox.Text);
+                
+                _firstValue = float.Parse(textBox.Text);
 
               textBox.Clear();
                _operators = "+";
@@ -204,6 +220,11 @@ namespace Calculator
         private void ButtonMinus_Click(object sender, EventArgs e)
        
         {
+            //Preventing the crash if user enter operators on an empty box.
+            if (textBox.Text == "")
+            {
+                return;
+            }
             // Allowing to do multiple '-' opperations before hitting '='
             if (_firstValue != 0)
             {
@@ -221,6 +242,11 @@ namespace Calculator
 
         private void ButtonMultiply_Click(object sender, EventArgs e)
         {
+            //Preventing the crash if user enter operators on an empty box.
+            if (textBox.Text == "")
+            {
+                return;
+            }
             // Allowing to do multiple '*' opperations before hitting '='
             if (_firstValue != 0)
             {
@@ -237,6 +263,11 @@ namespace Calculator
 
         private void ButtonDivide_Click(object sender, EventArgs e)
         {
+            //Preventing the crash if user enter operators on an empty box.
+            if (textBox.Text == "")
+            {
+                return;
+            }
             // Allowing to do multiple '/' opperations before hitting '='
             if (_firstValue != 0)
             {
@@ -253,6 +284,12 @@ namespace Calculator
          
         private void Percentbutton_Click(object sender, EventArgs e)
         {
+
+            //Preventing the crash if user enter operators on an empty box.
+            if (textBox.Text == "")
+            {
+                return;
+            }
             _firstValue = long.Parse(textBox.Text);
             textBox.Clear();
             _operators = "%";
@@ -297,8 +334,7 @@ namespace Calculator
             _firstValue = 0;
         }
 
-     
-   
+       
     }
 
 }

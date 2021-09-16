@@ -109,6 +109,7 @@
             this.textBox.Size = new System.Drawing.Size(293, 40);
             this.textBox.TabIndex = 16;
             this.textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // ButtonOne
