@@ -50,6 +50,7 @@
             this.ButtonClear = new System.Windows.Forms.Button();
             this.Percentbutton = new System.Windows.Forms.Button();
             this.Backspacebutton = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ButtonNine
@@ -59,7 +60,7 @@
             this.ButtonNine.Location = new System.Drawing.Point(13, 140);
             this.ButtonNine.Name = "ButtonNine";
             this.ButtonNine.Size = new System.Drawing.Size(53, 41);
-            this.ButtonNine.TabIndex = 0;
+            this.ButtonNine.TabIndex = 12;
             this.ButtonNine.Text = "9";
             this.ButtonNine.UseVisualStyleBackColor = true;
             this.ButtonNine.Click += new System.EventHandler(this.ButtonNine_Click);
@@ -71,7 +72,7 @@
             this.ButtonSix.Location = new System.Drawing.Point(13, 187);
             this.ButtonSix.Name = "ButtonSix";
             this.ButtonSix.Size = new System.Drawing.Size(53, 41);
-            this.ButtonSix.TabIndex = 1;
+            this.ButtonSix.TabIndex = 9;
             this.ButtonSix.Text = "6";
             this.ButtonSix.UseVisualStyleBackColor = true;
             this.ButtonSix.Click += new System.EventHandler(this.ButtonSix_Click);
@@ -83,7 +84,7 @@
             this.ButtonEight.Location = new System.Drawing.Point(72, 140);
             this.ButtonEight.Name = "ButtonEight";
             this.ButtonEight.Size = new System.Drawing.Size(53, 41);
-            this.ButtonEight.TabIndex = 6;
+            this.ButtonEight.TabIndex = 11;
             this.ButtonEight.Text = "8";
             this.ButtonEight.UseVisualStyleBackColor = true;
             this.ButtonEight.Click += new System.EventHandler(this.ButtonEight_Click);
@@ -95,7 +96,7 @@
             this.ButtonSeven.Location = new System.Drawing.Point(131, 140);
             this.ButtonSeven.Name = "ButtonSeven";
             this.ButtonSeven.Size = new System.Drawing.Size(53, 41);
-            this.ButtonSeven.TabIndex = 9;
+            this.ButtonSeven.TabIndex = 10;
             this.ButtonSeven.Text = "7";
             this.ButtonSeven.UseVisualStyleBackColor = true;
             this.ButtonSeven.Click += new System.EventHandler(this.ButtonSeven_Click);
@@ -107,9 +108,8 @@
             this.textBox.Location = new System.Drawing.Point(12, 61);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(293, 40);
-            this.textBox.TabIndex = 16;
+            this.textBox.TabIndex = 1;
             this.textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // ButtonOne
@@ -119,7 +119,7 @@
             this.ButtonOne.Location = new System.Drawing.Point(130, 233);
             this.ButtonOne.Name = "ButtonOne";
             this.ButtonOne.Size = new System.Drawing.Size(53, 41);
-            this.ButtonOne.TabIndex = 19;
+            this.ButtonOne.TabIndex = 4;
             this.ButtonOne.Text = "1";
             this.ButtonOne.UseVisualStyleBackColor = true;
             this.ButtonOne.Click += new System.EventHandler(this.ButtonOne_Click);
@@ -131,7 +131,7 @@
             this.ButtonTwo.Location = new System.Drawing.Point(71, 233);
             this.ButtonTwo.Name = "ButtonTwo";
             this.ButtonTwo.Size = new System.Drawing.Size(53, 41);
-            this.ButtonTwo.TabIndex = 18;
+            this.ButtonTwo.TabIndex = 5;
             this.ButtonTwo.Text = "2";
             this.ButtonTwo.UseVisualStyleBackColor = true;
             this.ButtonTwo.Click += new System.EventHandler(this.ButtonTwo_Click);
@@ -143,7 +143,7 @@
             this.ButtonThree.Location = new System.Drawing.Point(12, 233);
             this.ButtonThree.Name = "ButtonThree";
             this.ButtonThree.Size = new System.Drawing.Size(53, 41);
-            this.ButtonThree.TabIndex = 17;
+            this.ButtonThree.TabIndex = 6;
             this.ButtonThree.Text = "3";
             this.ButtonThree.UseVisualStyleBackColor = true;
             this.ButtonThree.Click += new System.EventHandler(this.ButtonThree_Click);
@@ -167,7 +167,7 @@
             this.ButtonZero.Location = new System.Drawing.Point(72, 280);
             this.ButtonZero.Name = "ButtonZero";
             this.ButtonZero.Size = new System.Drawing.Size(53, 41);
-            this.ButtonZero.TabIndex = 21;
+            this.ButtonZero.TabIndex = 3;
             this.ButtonZero.Text = "0";
             this.ButtonZero.UseVisualStyleBackColor = true;
             this.ButtonZero.Click += new System.EventHandler(this.ButtonZero_Click);
@@ -191,7 +191,7 @@
             this.ButtonFour.Location = new System.Drawing.Point(131, 186);
             this.ButtonFour.Name = "ButtonFour";
             this.ButtonFour.Size = new System.Drawing.Size(53, 41);
-            this.ButtonFour.TabIndex = 24;
+            this.ButtonFour.TabIndex = 7;
             this.ButtonFour.Text = "4";
             this.ButtonFour.UseVisualStyleBackColor = true;
             this.ButtonFour.Click += new System.EventHandler(this.ButtonFour_Click);
@@ -203,7 +203,7 @@
             this.ButtonFive.Location = new System.Drawing.Point(72, 186);
             this.ButtonFive.Name = "ButtonFive";
             this.ButtonFive.Size = new System.Drawing.Size(53, 41);
-            this.ButtonFive.TabIndex = 23;
+            this.ButtonFive.TabIndex = 8;
             this.ButtonFive.Text = "5";
             this.ButtonFive.UseVisualStyleBackColor = true;
             this.ButtonFive.Click += new System.EventHandler(this.ButtonFive_Click);
@@ -304,11 +304,22 @@
             this.Backspacebutton.UseVisualStyleBackColor = true;
             this.Backspacebutton.Click += new System.EventHandler(this.Backspacebutton_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(109, 12);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(202, 40);
+            this.textBox2.TabIndex = 2;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 333);
+            this.ClientSize = new System.Drawing.Size(323, 332);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.Backspacebutton);
             this.Controls.Add(this.Percentbutton);
             this.Controls.Add(this.ButtonClear);
@@ -332,6 +343,7 @@
             this.Controls.Add(this.ButtonNine);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "CalculatorForm";
             this.Text = "Calculator";
@@ -363,6 +375,7 @@
         private System.Windows.Forms.Button ButtonClear;
         private System.Windows.Forms.Button Percentbutton;
         private System.Windows.Forms.Button Backspacebutton;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
