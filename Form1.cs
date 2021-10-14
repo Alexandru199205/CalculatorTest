@@ -32,35 +32,36 @@ namespace Calculator
             {
                 e.Handled = true;
             }
+            switch (e.KeyChar)
+            {
+                case '+':
+                    ButtonPlus_Click(sender as TextBox, e);
+                    break;
+                case '-':
+                    ButtonMinus_Click(sender as TextBox, e);
+                    break;
+                case '*':
+                    ButtonMultiply_Click(sender as TextBox, e);
+                    break;
+                case '/':
+                    ButtonDivide_Click(sender as TextBox, e);
+                    break;
+                case '%':
+                    Backspacebutton_Click(sender as TextBox, e);
+                    break;
+                case ',':
+                    ButtonComma_Click(sender as TextBox, e);
+                    // Keeping the cursor at the begining of the textbox.(After some code it goes at the end of the textbox)               
+                    textBox.Select(textBox.Text.Length, 0);
+                    break;
+                default:
+                    break;
+            }
 
-          
-            if (e.KeyChar == '+')
-            {
-                ButtonPlus_Click(sender as TextBox, e);
-            }
-            if (e.KeyChar == '-')
-            {
-                ButtonMinus_Click(sender as TextBox, e);
-            }
-            if (e.KeyChar == '*')
-            {
-                ButtonMultiply_Click(sender as TextBox, e);
-            }
-            if (e.KeyChar == '/')
-            {
-                ButtonDivide_Click(sender as TextBox, e);
-            }
             if (e.KeyChar.ToString() == "08")
             {
                 Backspacebutton_Click(sender as TextBox, e);
             }
-            if (e.KeyChar.ToString() == ",")
-            {
-                ButtonComma_Click(sender as TextBox, e);
-                // Keeping the cursor at the begining of the textbox.(After some code it goes at the end of the textbox)               
-                textBox.Select(textBox.Text.Length, 0);
-            }
-
             if (e.KeyChar == '%')
             {
                 Percentbutton_Click(sender as TextBox, e);
@@ -73,9 +74,6 @@ namespace Calculator
 
         }
         // Method that helps introducing the numbers in the textbox (reduce duplicate code)
-
-
-       
         public void NumCheck(string num)
         {
             if (textBox.Text == "")
@@ -89,8 +87,6 @@ namespace Calculator
             }
      
         }
-
-         
         // Adding the buttons in the textbox
         private void ButtonZero_Click(object sender, EventArgs e)
         {
@@ -173,7 +169,8 @@ namespace Calculator
 
         {
             textBox.Clear();
-            textBox2.Clear();
+            labeldescription.Text = "";
+            //textBox2.Clear();
             // The lines below prevent operating with remained, uncleared data in case the '
             // clear' button is pressed during an unfinished opperetion.
             _firstValue = 0;
@@ -223,12 +220,12 @@ namespace Calculator
                 }
                textBox.Clear();
                 _operators = "+";
-                textBox2_TextChanged(); 
+                labeldescription_Click();
             }
             else if (_firstValue != 0)
             {
                 _firstValue += float.Parse(textBox.Text);
-                textBox2_TextChanged();
+                labeldescription_Click();
                 textBox.Clear();
             }
             
@@ -236,7 +233,7 @@ namespace Calculator
             {
                 _firstValue += float.Parse(textBox.Text);
                 _operators = "+";
-                  textBox2_TextChanged();
+                labeldescription_Click();
                 textBox.Clear();
 
             }
@@ -273,12 +270,12 @@ namespace Calculator
                 }
                 textBox.Clear();
                 _operators = "-";
-                textBox2_TextChanged();
+                labeldescription_Click();
             }
             else if (_firstValue != 0)
             {
                 _firstValue -= float.Parse(textBox.Text);
-                textBox2_TextChanged();
+                labeldescription_Click();
                 textBox.Clear();
             }
             else
@@ -286,7 +283,7 @@ namespace Calculator
             {
                 _firstValue = float.Parse(textBox.Text);
                 _operators = "-";
-                textBox2_TextChanged();
+                labeldescription_Click();
                 textBox.Clear();
             }
 
@@ -321,12 +318,12 @@ namespace Calculator
                 }
                 textBox.Clear();
                 _operators = "*";
-                textBox2_TextChanged();
+                labeldescription_Click();
             }
             else if (_firstValue != 0)
             {
                 _firstValue *= float.Parse(textBox.Text);
-                textBox2_TextChanged();
+                labeldescription_Click();
                 textBox.Clear();
             }
             else
@@ -334,7 +331,7 @@ namespace Calculator
             {
                 _firstValue = float.Parse(textBox.Text);
                 _operators = "*";
-                textBox2_TextChanged();
+                labeldescription_Click();
                 textBox.Clear();
             }
 
@@ -369,12 +366,13 @@ namespace Calculator
                 }
                 textBox.Clear();
                 _operators = "/";
-                textBox2_TextChanged();
+                labeldescription_Click();
             }
             else if (_firstValue != 0)
             {
                 _firstValue /= float.Parse(textBox.Text);
-                textBox2_TextChanged();
+                labeldescription_Click();
+//textBox2_TextChanged();
                 textBox.Clear();
             }
             else
@@ -382,7 +380,7 @@ namespace Calculator
             {
                 _firstValue = float.Parse(textBox.Text);
                 _operators = "/";
-                textBox2_TextChanged();
+                labeldescription_Click();
                 textBox.Clear();
             }
 
@@ -397,7 +395,7 @@ namespace Calculator
             {
                 return;
             }
-            textBox2_TextChanged();
+            labeldescription_Click();
             _operators = "%";
             _firstValue = long.Parse(textBox.Text);
             textBox.Clear();
@@ -439,18 +437,20 @@ namespace Calculator
                     break;
             }
             textBox.Text = _result.ToString();
-            textBox2.Text = _firstValue +_operators + _secondValue + "="+_result.ToString();
+            labeldescription.Text = _firstValue +_operators + _secondValue + "="+_result.ToString();
+           
             // The following line alows to continue opperating (if wanted) after pressing '='   
             _firstValue = 0;
         }
 
        // It helps to see all the data in a "multisteps" operation.
-        private void textBox2_TextChanged()
-        {
-                textBox2.Text = _firstValue + _operators;
-        }
-
        
+
+        private void labeldescription_Click()
+        {
+          labeldescription.Text = _firstValue + _operators;
+
+        }
     }
     }
 

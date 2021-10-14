@@ -50,7 +50,7 @@
             this.ButtonClear = new System.Windows.Forms.Button();
             this.Percentbutton = new System.Windows.Forms.Button();
             this.Backspacebutton = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labeldescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ButtonNine
@@ -304,22 +304,22 @@
             this.Backspacebutton.UseVisualStyleBackColor = true;
             this.Backspacebutton.Click += new System.EventHandler(this.Backspacebutton_Click);
             // 
-            // textBox2
+            // labeldescription
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(109, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(202, 40);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.labeldescription.AutoSize = true;
+            this.labeldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeldescription.Location = new System.Drawing.Point(189, 22);
+            this.labeldescription.Name = "labeldescription";
+            this.labeldescription.Size = new System.Drawing.Size(0, 24);
+            this.labeldescription.TabIndex = 33;
+            this.labeldescription.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 332);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.labeldescription);
             this.Controls.Add(this.Backspacebutton);
             this.Controls.Add(this.Percentbutton);
             this.Controls.Add(this.ButtonClear);
@@ -375,7 +375,7 @@
         private System.Windows.Forms.Button ButtonClear;
         private System.Windows.Forms.Button Percentbutton;
         private System.Windows.Forms.Button Backspacebutton;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label labeldescription;
     }
 }
 
