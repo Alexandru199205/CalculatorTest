@@ -35,22 +35,19 @@ namespace Calculator
             switch (e.KeyChar)
             {
                 case '+':
-                    ButtonPlus_Click(sender as TextBox, e);
+                    ExecutePlus();
                     break;
                 case '-':
-                    ButtonMinus_Click(sender as TextBox, e);
+                    ExecuteMinus();
                     break;
                 case '*':
-                    ButtonMultiply_Click(sender as TextBox, e);
+                    ExecuteMuliply();
                     break;
                 case '/':
-                    ButtonDivide_Click(sender as TextBox, e);
-                    break;
-                case '%':
-                    Backspacebutton_Click(sender as TextBox, e);
+                    ExecuteDivide();
                     break;
                 case ',':
-                    ButtonComma_Click(sender as TextBox, e);
+                    Comma();
                     // Keeping the cursor at the begining of the textbox.(After some code it goes at the end of the textbox)               
                     textBox.Select(textBox.Text.Length, 0);
                     break;
@@ -60,15 +57,15 @@ namespace Calculator
 
             if (e.KeyChar.ToString() == "08")
             {
-                Backspacebutton_Click(sender as TextBox, e);
+                BackSpace();
             }
             if (e.KeyChar == '%')
             {
-                Percentbutton_Click(sender as TextBox, e);
+                ExecutePercentage();
             }
             if (e.KeyChar == (char)Keys.Return || e.KeyChar == '=')
             {
-                ButtonEqual_Click(sender as TextBox, e);
+              ExecuteEqual();
                 textBox.Select(textBox.Text.Length, 0);
             }
 
@@ -154,15 +151,7 @@ namespace Calculator
 
         private void ButtonComma_Click(object sender, EventArgs e)
         {
-            if (!textBox.Text.Contains(','))
-            {
-                textBox.Text += ",";
-            }
-            else
-            {
-                textBox.Text = textBox.Text;
-
-            }
+            Comma();
         }
 
         private void ButtonClear_Click(object sender, EventArgs e)
@@ -179,27 +168,96 @@ namespace Calculator
         // Deleting unwanted figures from Textbox.
         private void Backspacebutton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-
-            }
-
+            BackSpace();
         }
         // The action of operators
         private void ButtonPlus_Click(object sender, EventArgs e)
         {
-            Multioper("+");
+            ExecutePlus();
+           
+        }
+
+        private void ButtonMinus_Click(object sender, EventArgs e)
+
+        {
+            ExecuteMinus();
+
+        }
+
+        private void ButtonMultiply_Click(object sender, EventArgs e)
+        {
+            ExecuteMuliply();
+
+        }
+
+        private void ButtonDivide_Click(object sender, EventArgs e)
+        {
+            ExecuteDivide();
+
+        }
+
+        private void Percentbutton_Click(object sender, EventArgs e)
+        {
+
+            ExecutePercentage();
+        }
+
+        // Bellow is the code responsible with returning the results ('=' button).
+        private void ButtonEqual_Click(object sender, EventArgs e)
+
+        {
+            ExecuteEqual();
+        }
+
+        // It helps to see all the data in a "multisteps" operation.
+
+
+        private void labeldescription_Click()
+        {
+            labeldescription.Text = _firstValue + _operators;
+
+        }
+        private void Multioperators(string opera)
+        {
+            if (_firstValue != 0 && _operators != opera)
+            {
+                    switch (_operators)
+                    {
+                      case "+":
+                        _firstValue += float.Parse(textBox.Text);
+                        break;
+                        case "-":
+                            _firstValue -= float.Parse(textBox.Text);
+                            break;
+                        case "*":
+                            _firstValue *= float.Parse(textBox.Text);
+                            break;
+                        case "/":
+                            _firstValue /= float.Parse(textBox.Text);
+                            break;
+                        case "%":
+                            _firstValue %= float.Parse(textBox.Text);
+                            break;
+                        default:
+                            break;
+                    
+                }
+                textBox.Clear();
+                _operators = opera;
+                labeldescription_Click();
+            }
+            }
+        private void ExecutePlus()
+        {
+            Multioperators("+");
+
             //Preventing the crash if user enter operators on an empty box.
             if (textBox.Text == "")
             {
                 return;
             }
-           
-           else if (_firstValue != 0)
+
+            else if (_firstValue != 0)
             {
                 _firstValue += float.Parse(textBox.Text);
                 labeldescription_Click();
@@ -214,18 +272,17 @@ namespace Calculator
                 textBox.Clear();
 
             }
+        
         }
-
-        private void ButtonMinus_Click(object sender, EventArgs e)
-
+        private void ExecuteMinus()
         {
-            Multioper("-");
+            Multioperators("-");
             //Preventing the crash if user enter operators on an empty box.
             if (textBox.Text == "")
             {
                 return;
             }
-           
+
             else if (_firstValue != 0)
             {
                 _firstValue -= float.Parse(textBox.Text);
@@ -240,12 +297,10 @@ namespace Calculator
                 labeldescription_Click();
                 textBox.Clear();
             }
-
         }
-
-        private void ButtonMultiply_Click(object sender, EventArgs e)
+        private void ExecuteMuliply()
         {
-            Multioper("*");
+            Multioperators("*");
             //Preventing the crash if user enter operators on an empty box.
             if (textBox.Text == "")
             {
@@ -265,12 +320,10 @@ namespace Calculator
                 labeldescription_Click();
                 textBox.Clear();
             }
-
         }
-
-        private void ButtonDivide_Click(object sender, EventArgs e)
+        private void ExecuteDivide()
         {
-            Multioper("/");
+            Multioperators("/");
             //Preventing the crash if user enter operators on an empty box.
             if (textBox.Text == "")
             {
@@ -291,12 +344,9 @@ namespace Calculator
                 labeldescription_Click();
                 textBox.Clear();
             }
-
         }
-
-        private void Percentbutton_Click(object sender, EventArgs e)
+        private void ExecutePercentage()
         {
-
             //Preventing the crash if user enter operators on an empty box.
             if (textBox.Text == "")
             {
@@ -307,9 +357,20 @@ namespace Calculator
             _firstValue = long.Parse(textBox.Text);
             textBox.Clear();
         }
+        private void BackSpace()
+        {
+            try
+            {
+                textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
 
-        // Bellow is the code responsible with returning the results ('=' button).
-        private void ButtonEqual_Click(object sender, EventArgs e)
+            }
+        }
+        private void ExecuteEqual()
+
+
         {
             switch (_operators)
             {
@@ -349,46 +410,19 @@ namespace Calculator
             // The following line alows to continue opperating (if wanted) after pressing '='   
             _firstValue = 0;
         }
-
-        // It helps to see all the data in a "multisteps" operation.
-
-
-        private void labeldescription_Click()
+        private void Comma()
         {
-            labeldescription.Text = _firstValue + _operators;
-
-        }
-        private void Multioper(string opera)
-        {
-            if (_firstValue != 0 && _operators != opera)
+            if (!textBox.Text.Contains(','))
             {
-                    switch (_operators)
-                    {
-                      case "+":
-                        _firstValue += float.Parse(textBox.Text);
-                        break;
-                        case "-":
-                            _firstValue -= float.Parse(textBox.Text);
-                            break;
-                        case "*":
-                            _firstValue *= float.Parse(textBox.Text);
-                            break;
-                        case "/":
-                            _firstValue /= float.Parse(textBox.Text);
-                            break;
-                        case "%":
-                            _firstValue %= float.Parse(textBox.Text);
-                            break;
-                        default:
-                            break;
-                    
-                }
-                textBox.Clear();
-                _operators = opera;
-                labeldescription_Click();
+                textBox.Text += ",";
             }
-            }
+            else
+            {
+                textBox.Text = textBox.Text;
 
+            }
         }
     }
+    }
+
 
