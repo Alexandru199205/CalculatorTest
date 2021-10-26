@@ -360,9 +360,10 @@ namespace Calculator
         }
         private void Comma()
         {
-            CultureInfo.CurrentCulture = new CultureInfo("en-US");   
             if (!textBox.Text.Contains(','))
             {
+           CultureInfo.CurrentCulture = new CultureInfo("en-US");
+
                 textBox.Text += ",";
             }
             else
