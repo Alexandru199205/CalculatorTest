@@ -311,20 +311,16 @@ namespace Calculator
         }
         private void BackSpace()
         {
-            try
-            {
+            if(textBox.Text.Length>0)
+           
                 textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-
-            }
+            
         }
         private void ExecuteEqual()
 
 
         {
-            switch (_operators)
+            switch (_operators) 
             {
 
                 case "+":
