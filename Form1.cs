@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,7 +66,7 @@ namespace Calculator
             }
             if (e.KeyChar == (char)Keys.Return || e.KeyChar == '=')
             {
-              ExecuteEqual();
+                ExecuteEqual();
                 textBox.Select(textBox.Text.Length, 0);
             }
 
@@ -85,60 +86,11 @@ namespace Calculator
 
         }
         // Adding the buttons in the textbox
-        private void ButtonZero_Click(object sender, EventArgs e)
+        private void NUmberButtonClick(object sender, EventArgs e)
         {
-            NumCheck("0");
+            Button button = (Button)sender;
+            NumCheck(button.Tag.ToString());
         }
-
-        private void ButtonOne_Click(object sender, EventArgs e)
-        {
-            NumCheck("1");
-
-        }
-
-        private void ButtonTwo_Click(object sender, EventArgs e)
-        {
-            NumCheck("2");
-
-        }
-
-        private void ButtonThree_Click(object sender, EventArgs e)
-        {
-            NumCheck("3");
-
-        }
-
-        private void ButtonFour_Click(object sender, EventArgs e)
-        {
-
-            NumCheck("4");
-        }
-
-        private void ButtonFive_Click(object sender, EventArgs e)
-        {
-            NumCheck("5");
-        }
-
-        private void ButtonSix_Click(object sender, EventArgs e)
-        {
-            NumCheck("6");
-        }
-
-        private void ButtonSeven_Click(object sender, EventArgs e)
-        {
-            NumCheck("7");
-        }
-
-        private void ButtonEight_Click(object sender, EventArgs e)
-        {
-            NumCheck("8");
-        }
-
-        private void ButtonNine_Click(object sender, EventArgs e)
-        {
-            NumCheck("9");
-        }
-
 
         private void ButtonPlusMinus_Click(object sender, EventArgs e)
         {
@@ -174,7 +126,7 @@ namespace Calculator
         private void ButtonPlus_Click(object sender, EventArgs e)
         {
             ExecutePlus();
-           
+
         }
 
         private void ButtonMinus_Click(object sender, EventArgs e)
@@ -221,32 +173,32 @@ namespace Calculator
         {
             if (_firstValue != 0 && _operators != opera)
             {
-                    switch (_operators)
-                    {
-                      case "+":
+                switch (_operators)
+                {
+                    case "+":
                         _firstValue += float.Parse(textBox.Text);
                         break;
-                        case "-":
-                            _firstValue -= float.Parse(textBox.Text);
-                            break;
-                        case "*":
-                            _firstValue *= float.Parse(textBox.Text);
-                            break;
-                        case "/":
-                            _firstValue /= float.Parse(textBox.Text);
-                            break;
-                        case "%":
-                            _firstValue %= float.Parse(textBox.Text);
-                            break;
-                        default:
-                            break;
-                    
+                    case "-":
+                        _firstValue -= float.Parse(textBox.Text);
+                        break;
+                    case "*":
+                        _firstValue *= float.Parse(textBox.Text);
+                        break;
+                    case "/":
+                        _firstValue /= float.Parse(textBox.Text);
+                        break;
+                    case "%":
+                        _firstValue %= float.Parse(textBox.Text);
+                        break;
+                    default:
+                        break;
+
                 }
                 textBox.Clear();
                 _operators = opera;
                 labeldescription_Click();
             }
-            }
+        }
         private void ExecutePlus()
         {
             Multioperators("+");
@@ -272,7 +224,7 @@ namespace Calculator
                 textBox.Clear();
 
             }
-        
+
         }
         private void ExecuteMinus()
         {
@@ -412,6 +364,7 @@ namespace Calculator
         }
         private void Comma()
         {
+            CultureInfo.CurrentCulture = new CultureInfo("en-US");   
             if (!textBox.Text.Contains(','))
             {
                 textBox.Text += ",";
@@ -423,6 +376,6 @@ namespace Calculator
             }
         }
     }
-    }
+}
 
 

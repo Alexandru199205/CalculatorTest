@@ -61,9 +61,10 @@
             this.ButtonNine.Name = "ButtonNine";
             this.ButtonNine.Size = new System.Drawing.Size(53, 41);
             this.ButtonNine.TabIndex = 12;
+            this.ButtonNine.Tag = "9";
             this.ButtonNine.Text = "9";
             this.ButtonNine.UseVisualStyleBackColor = true;
-            this.ButtonNine.Click += new System.EventHandler(this.ButtonNine_Click);
+            this.ButtonNine.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonSix
             // 
@@ -73,9 +74,10 @@
             this.ButtonSix.Name = "ButtonSix";
             this.ButtonSix.Size = new System.Drawing.Size(53, 41);
             this.ButtonSix.TabIndex = 9;
+            this.ButtonSix.Tag = "6";
             this.ButtonSix.Text = "6";
             this.ButtonSix.UseVisualStyleBackColor = true;
-            this.ButtonSix.Click += new System.EventHandler(this.ButtonSix_Click);
+            this.ButtonSix.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonEight
             // 
@@ -85,9 +87,10 @@
             this.ButtonEight.Name = "ButtonEight";
             this.ButtonEight.Size = new System.Drawing.Size(53, 41);
             this.ButtonEight.TabIndex = 11;
+            this.ButtonEight.Tag = "8";
             this.ButtonEight.Text = "8";
             this.ButtonEight.UseVisualStyleBackColor = true;
-            this.ButtonEight.Click += new System.EventHandler(this.ButtonEight_Click);
+            this.ButtonEight.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonSeven
             // 
@@ -97,9 +100,10 @@
             this.ButtonSeven.Name = "ButtonSeven";
             this.ButtonSeven.Size = new System.Drawing.Size(53, 41);
             this.ButtonSeven.TabIndex = 10;
+            this.ButtonSeven.Tag = "7";
             this.ButtonSeven.Text = "7";
             this.ButtonSeven.UseVisualStyleBackColor = true;
-            this.ButtonSeven.Click += new System.EventHandler(this.ButtonSeven_Click);
+            this.ButtonSeven.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // textBox
             // 
@@ -120,9 +124,10 @@
             this.ButtonOne.Name = "ButtonOne";
             this.ButtonOne.Size = new System.Drawing.Size(53, 41);
             this.ButtonOne.TabIndex = 4;
+            this.ButtonOne.Tag = "1";
             this.ButtonOne.Text = "1";
             this.ButtonOne.UseVisualStyleBackColor = true;
-            this.ButtonOne.Click += new System.EventHandler(this.ButtonOne_Click);
+            this.ButtonOne.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonTwo
             // 
@@ -132,9 +137,10 @@
             this.ButtonTwo.Name = "ButtonTwo";
             this.ButtonTwo.Size = new System.Drawing.Size(53, 41);
             this.ButtonTwo.TabIndex = 5;
+            this.ButtonTwo.Tag = "2";
             this.ButtonTwo.Text = "2";
             this.ButtonTwo.UseVisualStyleBackColor = true;
-            this.ButtonTwo.Click += new System.EventHandler(this.ButtonTwo_Click);
+            this.ButtonTwo.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonThree
             // 
@@ -144,9 +150,10 @@
             this.ButtonThree.Name = "ButtonThree";
             this.ButtonThree.Size = new System.Drawing.Size(53, 41);
             this.ButtonThree.TabIndex = 6;
+            this.ButtonThree.Tag = "3";
             this.ButtonThree.Text = "3";
             this.ButtonThree.UseVisualStyleBackColor = true;
-            this.ButtonThree.Click += new System.EventHandler(this.ButtonThree_Click);
+            this.ButtonThree.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonComma
             // 
@@ -170,7 +177,7 @@
             this.ButtonZero.TabIndex = 3;
             this.ButtonZero.Text = "0";
             this.ButtonZero.UseVisualStyleBackColor = true;
-            this.ButtonZero.Click += new System.EventHandler(this.ButtonZero_Click);
+            this.ButtonZero.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonPlusMinus
             // 
@@ -192,9 +199,10 @@
             this.ButtonFour.Name = "ButtonFour";
             this.ButtonFour.Size = new System.Drawing.Size(53, 41);
             this.ButtonFour.TabIndex = 7;
+            this.ButtonFour.Tag = "4";
             this.ButtonFour.Text = "4";
             this.ButtonFour.UseVisualStyleBackColor = true;
-            this.ButtonFour.Click += new System.EventHandler(this.ButtonFour_Click);
+            this.ButtonFour.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonFive
             // 
@@ -204,9 +212,10 @@
             this.ButtonFive.Name = "ButtonFive";
             this.ButtonFive.Size = new System.Drawing.Size(53, 41);
             this.ButtonFive.TabIndex = 8;
+            this.ButtonFive.Tag = "5";
             this.ButtonFive.Text = "5";
             this.ButtonFive.UseVisualStyleBackColor = true;
-            this.ButtonFive.Click += new System.EventHandler(this.ButtonFive_Click);
+            this.ButtonFive.Click += new System.EventHandler(this.NUmberButtonClick);
             // 
             // ButtonMinus
             // 
