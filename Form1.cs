@@ -17,6 +17,7 @@ namespace Calculator
         private float _secondValue = 0;
         private float _result = 0;
         private string _operators = "";
+        private int zeroval = 0;
 
         public CalculatorForm()
         {
@@ -171,23 +172,47 @@ namespace Calculator
         }
         private void Multioperators(string opera)
         {
+           
             if (_firstValue != 0 && _operators != opera)
             {
                 switch (_operators)
                 {
                     case "+":
+                       //This condition allow user to change opperators in case the wrong one was introduced.
+                        if (textBox.Text == "")
+                        {
+                            textBox.Text =zeroval.ToString();
+                        }
                         _firstValue += float.Parse(textBox.Text);
                         break;
                     case "-":
+                        if (textBox.Text == "")
+                        {
+                            textBox.Text = zeroval.ToString();
+                        }
                         _firstValue -= float.Parse(textBox.Text);
                         break;
                     case "*":
+                        if (textBox.Text == "")
+                        {
+                            textBox.Text = zeroval.ToString();
+                        }
                         _firstValue *= float.Parse(textBox.Text);
                         break;
                     case "/":
+
+                        if (textBox.Text == "")
+                        {
+                            textBox.Text = zeroval.ToString();
+                        }
                         _firstValue /= float.Parse(textBox.Text);
                         break;
                     case "%":
+
+                        if (textBox.Text == "")
+                        {
+                            textBox.Text = zeroval.ToString();
+                        }
                         _firstValue %= float.Parse(textBox.Text);
                         break;
                     default:
