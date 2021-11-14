@@ -333,9 +333,9 @@ namespace Calculator
             {
                 return;
             }
-            labeldescription_Click();
+            labeldescription.Text = _firstValue.ToString();
             _operators = "%";
-            _firstValue = long.Parse(textBox.Text);
+            _firstValue %= long.Parse(textBox.Text);
             textBox.Clear();
         }
         private void BackSpace()
