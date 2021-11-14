@@ -114,10 +114,12 @@ namespace Calculator
         {
             textBox.Clear();
             labeldescription.Text = "";
-            //textBox2.Clear();
-            // The lines below prevent operating with remained, uncleared data in case the '
-            // clear' button is pressed during an unfinished opperetion.
-            _firstValue = 0;
+            textBox.Select();
+        
+        //textBox2.Clear();
+        // The lines below prevent operating with remained, uncleared data in case the '
+        // clear' button is pressed during an unfinished opperetion.
+        _firstValue = 0;
             _secondValue = 0;
         }
         // Deleting unwanted figures from Textbox.
