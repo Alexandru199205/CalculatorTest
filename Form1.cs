@@ -74,8 +74,7 @@ namespace Calculator
             }
 
         }
-        // Method that helps introducing the numbers in the textbox (reduce duplicate code)
-        public void NumCheck(string num)
+        public void InputNums(string num)
         {
             if (textBox.Text == "")
             {
@@ -92,7 +91,7 @@ namespace Calculator
         private void NUmberButtonClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            NumCheck(button.Tag.ToString());
+            InputNums(button.Tag.ToString());
         }
 
         private void ButtonPlusMinus_Click(object sender, EventArgs e)
@@ -117,8 +116,8 @@ namespace Calculator
             textBox.Select();
         
         //textBox2.Clear();
-        // The lines below prevent operating with remained, uncleared data in case the '
-        // clear' button is pressed during an unfinished opperetion.
+        // The lines below prevent operating with remained, uncleared data in case the
+        // 'clear' button is pressed during an unfinished opperetion.
         _firstValue = 0;
             _secondValue = 0;
         }
@@ -169,7 +168,7 @@ namespace Calculator
         // It helps to see all the data in a "multisteps" operation.
 
 
-        private void labeldescription_Click()
+        private void Labeldescription_Click()
         {
             labeldescription.Text = _firstValue + _operators;
 
@@ -225,7 +224,7 @@ namespace Calculator
                 }
                 textBox.Clear();
                 _operators = opera;
-                labeldescription_Click();
+                Labeldescription_Click();
             }
         }
         private void ExecutePlus()
@@ -241,7 +240,7 @@ namespace Calculator
             else if (_firstValue != 0)
             {
                 _firstValue += float.Parse(textBox.Text);
-                labeldescription_Click();
+                Labeldescription_Click();
                 textBox.Clear();
             }
 
@@ -249,7 +248,7 @@ namespace Calculator
             {
                 _firstValue += float.Parse(textBox.Text);
                 _operators = "+";
-                labeldescription_Click();
+                Labeldescription_Click();
                 textBox.Clear();
 
             }
@@ -267,7 +266,7 @@ namespace Calculator
             else if (_firstValue != 0)
             {
                 _firstValue -= float.Parse(textBox.Text);
-                labeldescription_Click();
+                Labeldescription_Click();
                 textBox.Clear();
             }
             else
@@ -275,7 +274,7 @@ namespace Calculator
             {
                 _firstValue = float.Parse(textBox.Text);
                 _operators = "-";
-                labeldescription_Click();
+                Labeldescription_Click();
                 textBox.Clear();
             }
         }
@@ -290,7 +289,7 @@ namespace Calculator
             else if (_firstValue != 0)
             {
                 _firstValue *= float.Parse(textBox.Text);
-                labeldescription_Click();
+                Labeldescription_Click();
                 textBox.Clear();
             }
             else
@@ -298,7 +297,7 @@ namespace Calculator
             {
                 _firstValue = float.Parse(textBox.Text);
                 _operators = "*";
-                labeldescription_Click();
+                Labeldescription_Click();
                 textBox.Clear();
             }
         }
@@ -313,7 +312,7 @@ namespace Calculator
             else if (_firstValue != 0)
             {
                 _firstValue /= float.Parse(textBox.Text);
-                labeldescription_Click();
+                Labeldescription_Click();
                 //textBox2_TextChanged();
                 textBox.Clear();
             }
@@ -322,7 +321,7 @@ namespace Calculator
             {
                 _firstValue = float.Parse(textBox.Text);
                 _operators = "/";
-                labeldescription_Click();
+                Labeldescription_Click();
                 textBox.Clear();
             }
         }
