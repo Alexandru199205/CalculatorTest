@@ -18,6 +18,8 @@ namespace Calculator
         private float _result = 0;
         private string _operators = "";
         private int zeroval = 0;
+        private int oneValue = 1;
+
 
         public CalculatorForm()
         {
@@ -195,7 +197,7 @@ namespace Calculator
                     case "*":
                         if (textBox.Text == "")
                         {
-                            textBox.Text = zeroval.ToString();
+                            textBox.Text = oneValue.ToString();
                         }
                         _firstValue *= float.Parse(textBox.Text);
                         break;
@@ -203,7 +205,7 @@ namespace Calculator
 
                         if (textBox.Text == "")
                         {
-                            textBox.Text = zeroval.ToString();
+                            textBox.Text = oneValue.ToString();
                         }
                         _firstValue /= float.Parse(textBox.Text);
                         break;
@@ -211,7 +213,7 @@ namespace Calculator
 
                         if (textBox.Text == "")
                         {
-                            textBox.Text = zeroval.ToString();
+                            textBox.Text = oneValue.ToString();
                         }
                         _firstValue %= float.Parse(textBox.Text);
                         break;
