@@ -175,6 +175,7 @@
             this.ButtonZero.Name = "ButtonZero";
             this.ButtonZero.Size = new System.Drawing.Size(53, 41);
             this.ButtonZero.TabIndex = 3;
+            this.ButtonZero.Tag = "0";
             this.ButtonZero.Text = "0";
             this.ButtonZero.UseVisualStyleBackColor = true;
             this.ButtonZero.Click += new System.EventHandler(this.NUmberButtonClick);
